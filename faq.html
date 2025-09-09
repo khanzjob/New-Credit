@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find answers to frequently asked questions about Credit Craft's loans, eligibility, repayment terms, and business loans in Uganda.">
+    <title>FAQ - Credit Craft</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --primary-blue-light: #3b82f6;
+            --primary-yellow: #eab308;
+            --primary-yellow-light: #fbbf24;
+            --text-dark: #111827;
+            --text-gray: #6b7280;
+            --text-light: #9ca3af;
+            --bg-gray: #f9fafb;
+            --bg-gray-dark: #f3f4f6;
+            --white: #ffffff;
+            --green: #10b981;
+            --red: #ef4444;
+            --shadow: 0 10px 25px rgba(0,0,0,0.1);
+            --shadow-lg: 0 25px 50px rgba(0,0,0,0.15);
+            --gradient-primary: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #1f2937 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #eab308 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-gray);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--primary-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-accent);
+            color: var(--primary-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            z-index: 999;
+        }
+
+        .nav-links.active a {
+            padding: 0.5rem 0;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 8rem 0 5rem;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .hero-section h1 span {
+            color: var(--primary-yellow);
+        }
+
+        .hero-section p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-light);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 3rem 0;
+        }
+
+        .search-container {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border: 2px solid var(--bg-gray-dark);
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            fill: var(--text-gray);
+        }
+
+        .category-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
+            background: var(--white);
+            color: var(--primary-blue);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-btn.active {
+            background: var(--gradient-accent);
+            color: var(--primary-blue);
+            box-shadow: var(--shadow);
+        }
+
+        .category-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .category-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .results-count {
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .faq-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .faq-card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faq-header {
+            padding: 1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-header .badge {
+            background: var(--bg-gray-dark);
+            color: var(--text-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .faq-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            flex: 1;
+            margin: 0 1rem;
+        }
+
+        .faq-content {
+            display: none;
+            padding: 0 1rem 1rem;
+            border-top: 1px solid var(--bg-gray-dark);
+        }
+
+        .faq-content.active {
+            display: block;
+        }
+
+        .faq-content p {
+            color: var(--text-gray);
+        }
+
+        .chevron-icon {
+            width: 20px;
+            height: 20px;
+            fill: var(--text-gray);
+            transition: transform 0.3s ease;
+        }
+
+        .chevron-icon.active {
+            transform: rotate(180deg);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .no-results svg {
+            width: 48px;
+            height: 48px;
+            fill: var(--text-gray);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 4rem;
+        }
+
+        .contact-card {
+            background: #eff6ff;
+            border: 2px solid #bfdbfe;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card svg {
+            width: 48px;
+            height: 48px;
+            fill: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: var(--primary-blue);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: var(--white);
+        }
+
+        /* Popular Topics */
+        .topics-section {
+            margin-top: 4rem;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .topic-card {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .topic-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .topic-card svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-blue);
+            margin-bottom: 0.75rem;
+        }
+
+        .topic-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-card p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .category-buttons {
+                flex-direction: column;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+            }
+
+            .faq-header h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Credit Craft</div>
+            <ul class="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="index.html#products">Loan Products</a></li>
+                <li><a href="index.html#calculator">Calculator</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+            </ul>
+            <a href="./loan_applications.html" class="nav-cta">Apply Now</a>
+            <div class="mobile-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Frequently Asked <span>Questions</span></h1>
+            <p>Find answers to common questions about our loans, eligibility requirements, repayment terms, and more.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <!-- Search and Filter -->
+            <div class="search-container">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" id="searchInput" placeholder="Search questions...">
+            </div>
+
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="all">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    All Questions
+                </button>
+                <button class="category-btn" data-category="loans">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                        <path d="M7 15h10"></path>
+                        <path d="M7 8h10"></path>
+                    </svg>
+                    Loans & Applications
+                </button>
+                <button class="category-btn" data-category="eligibility">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="8.5" cy="7" r="4"></circle>
+                        <line x1="20" y1="8" x2="20" y2="10"></line>
+                        <line x1="23" y1="11" x2="17" y2="11"></line>
+                    </svg>
+                    Eligibility & Requirements
+                </button>
+                <button class="category-btn" data-category="repayment">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 9V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+                        <path d="M19 19V13a2 2 0 0 0-2-2H9"></path>
+                        <path d="m13 16 6-6"></path>
+                        <path d="m16 13 3 3"></path>
+                    </svg>
+                    Repayment & Terms
+                </button>
+                <button class="category-btn" data-category="business">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path>
+                        <path d="M4 8h16"></path>
+                        <path d="M8 8v12"></path>
+                        <path d="M12 8v12"></path>
+                        <path d="M16 8v12"></path>
+                    </svg>
+                    Business Loans
+                </button>
+            </div>
+
+            <!-- Results Count -->
+            <div class="results-count" id="resultsCount"></div>
+
+            <!-- FAQ List -->
+            <div id="faqList"></div>
+
+            <!-- Contact Section -->
+            <div class="contact-section">
+                <div class="contact-card">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <h3>Still have questions?</h3>
+                    <p>Can't find the answer you're looking for? Our customer support team is here to help.</p>
+                    <div class="contact-buttons">
+                        <a href="index.html#contact" class="btn btn-primary">Contact Support</a>
+                        <a href="tel:+256700123456" class="btn btn-outline">Call +256 700 123 456</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Popular Topics -->
+            <div class="topics-section">
+                <h2>Popular Topics</h2>
+                <div class="topics-grid" id="topicsGrid"></div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const faqs = [
+            {
+                id: 1,
+                category: 'loans',
+                question: 'What types of loans does Credit Craft offer?',
+                answer: 'Credit Craft offers four main types of loans: Personal Loans (UGX 500,000 - 50,000,000), SME Loans (UGX 1,000,000 - 200,000,000), Asset Financing (UGX 5,000,000 - 500,000,000), and Salary Advance (UGX 100,000 - 5,000,000). Each loan type is designed for specific needs and has different eligibility criteria and terms.'
+            },
+            {
+                id: 2,
+                category: 'loans',
+                question: 'How quickly can I get my loan approved?',
+                answer: 'Processing times vary by loan type: Salary Advance (2-4 hours), Personal Loans (24-48 hours), SME Loans (3-7 days), and Asset Financing (5-10 days). These timeframes apply once all required documents are submitted and verified.'
+            },
+            {
+                id: 3,
+                category: 'eligibility',
+                question: 'What are the basic requirements for a personal loan?',
+                answer: 'For personal loans, you must be a Ugandan citizen aged 21-65 years, have regular monthly income (employed or self-employed), possess a valid national ID, provide bank statements for the last 3 months, and show proof of income (salary slip or business records).'
+            },
+            {
+                id: 4,
+                category: 'eligibility',
+                question: 'Do I need collateral for all loan types?',
+                answer: 'No, collateral requirements vary: Personal loans up to UGX 5M require no collateral, Salary Advance requires no collateral, SME Loans have flexible collateral options, and Asset Financing uses the purchased asset as collateral.'
+            },
+            {
+                id: 5,
+                category: 'loans',
+                question: 'Can I apply for a loan online?',
+                answer: 'Yes, you can start your loan application online through our website. Simply visit our Loan Application page, fill out the step-by-step form, and upload the required documents. Our team will review your application and contact you within our processing timeframe.'
+            },
+            {
+                id: 6,
+                category: 'repayment',
+                question: 'What are the interest rates for different loan types?',
+                answer: 'Our interest rates are competitive: Personal Loans (18%-24%), SME Loans (15%-20%), Asset Financing (12%-18%), and Salary Advance (2%-5% per month). The exact rate depends on your credit profile, loan amount, and repayment period.'
+            },
+            {
+                id: 7,
+                category: 'repayment',
+                question: 'What repayment options are available?',
+                answer: 'We offer flexible repayment terms: Personal Loans (3-36 months), SME Loans (6-60 months), Asset Financing (12-84 months), and Salary Advance (1-6 months). You can repay through bank transfer, mobile money, or automatic salary deduction for salary advances.'
+            },
+            {
+                id: 8,
+                category: 'repayment',
+                question: 'What happens if I miss a payment?',
+                answer: 'If you miss a payment, we will contact you immediately to understand your situation. We offer grace periods and can work with you to restructure your payment plan if needed. However, late payments may incur additional fees and affect your credit score.'
+            },
+            {
+                id: 9,
+                category: 'business',
+                question: 'What documents do I need for a business loan?',
+                answer: 'For SME loans, you need: business registration certificate, valid business license, tax identification number (TIN), business bank statements (6 months), financial statements (audited if available), business plan or proposal, and collateral documents if applicable.'
+            },
+            {
+                id: 10,
+                category: 'business',
+                question: 'How long must my business be operational to qualify?',
+                answer: 'Your business must be operational for at least 12 months to qualify for an SME loan. This requirement helps us assess your business stability and cash flow patterns.'
+            },
+            {
+                id: 11,
+                category: 'loans',
+                question: 'Are there any hidden fees?',
+                answer: 'No, Credit Craft believes in complete transparency. All fees, including processing fees, insurance costs, and any other charges, are clearly disclosed upfront before you sign the loan agreement. There are no hidden fees.'
+            },
+            {
+                id: 12,
+                category: 'eligibility',
+                question: 'Can I get a loan if I have other existing loans?',
+                answer: 'Yes, having other loans doesn\'t automatically disqualify you. We assess your total debt-to-income ratio and your ability to service all loans comfortably. We may require additional documentation to verify your financial capacity.'
+            },
+            {
+                id: 13,
+                category: 'loans',
+                question: 'Can I pay off my loan early?',
+                answer: 'Yes, you can pay off your loan early without penalty fees. Early repayment can save you money on interest charges. Contact our customer service team to calculate your early settlement amount.'
+            },
+            {
+                id: 14,
+                category: 'repayment',
+                question: 'How is my monthly payment calculated?',
+                answer: 'Your monthly payment is calculated based on the loan amount, interest rate, and repayment period using standard loan amortization formulas. We provide a clear breakdown showing principal and interest components for each payment.'
+            },
+            {
+                id: 15,
+                category: 'loans',
+                question: 'What is the maximum loan amount I can get?',
+                answer: 'Maximum loan amounts vary by type: Personal Loans (UGX 50M), SME Loans (UGX 200M), Asset Financing (UGX 500M), and Salary Advance (UGX 5M). The actual amount you qualify for depends on your income, credit history, and ability to repay.'
+            },
+            {
+                id: 16,
+                category: 'eligibility',
+                question: 'Do you check credit history?',
+                answer: 'Yes, we perform credit checks as part of our assessment process. However, we consider multiple factors beyond credit history, including income stability, employment history, and overall financial capacity. A less-than-perfect credit history doesn\'t automatically disqualify you.'
+            },
+            {
+                id: 17,
+                category: 'business',
+                question: 'Do you provide business advisory services with loans?',
+                answer: 'Yes, our SME loans come with business advisory support. We help with cash flow management, business planning, and growth strategies. We also offer separate comprehensive business financial consulting services.'
+            },
+            {
+                id: 18,
+                category: 'loans',
+                question: 'How do I track my loan application status?',
+                answer: 'Once you submit your application, you\'ll receive a reference number. You can call our customer service line or visit our office to check your application status. We also send SMS and email updates at key stages of the process.'
+            },
+            {
+                id: 19,
+                category: 'repayment',
+                question: 'Can I change my repayment schedule?',
+                answer: 'In certain circumstances, we can discuss modifying your repayment schedule. This might be possible due to changes in income, seasonal business patterns, or financial hardship. Contact us early if you anticipate payment difficulties.'
+            },
+            {
+                id: 20,
+                category: 'loans',
+                question: 'Is Credit Craft licensed and regulated?',
+                answer: 'Yes, Credit Craft is fully licensed by the Uganda Microfinance Regulatory Authority (UMRA) as a Tier 4 Microfinance Institution (License Number: UMRA/MFI/2020/045). We comply with all regulatory requirements and data protection laws.'
+            }
+        ];
+
+        const categories = [
+            { id: 'all', name: 'All Questions' },
+            { id: 'loans', name: 'Loans & Applications' },
+            { id: 'eligibility', name: 'Eligibility & Requirements' },
+            { id: 'repayment', name: 'Repayment & Terms' },
+            { id: 'business', name: 'Business Loans' }
+        ];
+
+        let searchTerm = '';
+        let selectedCategory = 'all';
+
+        // DOM Elements
+        const searchInput = document.getElementById('searchInput');
+        const resultsCount = document.getElementById('resultsCount');
+        const faqList = document.getElementById('faqList');
+        const topicsGrid = document.getElementById('topicsGrid');
+        const categoryButtons = document.querySelectorAll('.category-btn');
+
+        // Render FAQs
+        function renderFAQs() {
+            const filteredFAQs = faqs.filter(faq => {
+                const matchesCategory = selectedCategory === 'all' || faq.category === selectedCategory;
+                const matchesSearch = faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                     faq.answer.toLowerCase().includes(searchTerm.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+
+            resultsCount.textContent = `Showing ${filteredFAQs.length} question${filteredFAQs.length !== 1 ? 's' : ''}${searchTerm ? ` for "${searchTerm}"` : ''}${selectedCategory !== 'all' ? ` in ${categories.find(c => c.id === selectedCategory).name}` : ''}`;
+
+            faqList.innerHTML = filteredFAQs.length === 0 ? `
+                <div class="no-results">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <h3>No questions found</h3>
+                    <p>Try adjusting your search terms or selecting a different category.</p>
+                </div>
+            ` : filteredFAQs.map(faq => `
+                <div class="faq-card" data-id="${faq.id}">
+                    <div class="faq-header">
+                        <span class="badge">${categories.find(c => c.id === faq.category).name}</span>
+                        <h3>${faq.question}</h3>
+                        <svg class="chevron-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                    <div class="faq-content">
+                        <p>${faq.answer}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            document.querySelectorAll('.faq-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const faqCard = header.parentElement;
+                    const content = faqCard.querySelector('.faq-content');
+                    const chevron = faqCard.querySelector('.chevron-icon');
+                    const isActive = content.classList.contains('active');
+
+                    document.querySelectorAll('.faq-content').forEach(c => c.classList.remove('active'));
+                    document.querySelectorAll('.chevron-icon').forEach(c => c.classList.remove('active'));
+
+                    if (!isActive) {
+                        content.classList.add('active');
+                        chevron.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // Render Popular Topics
+        function renderTopics() {
+            topicsGrid.innerHTML = categories.slice(1).map(category => {
+                const count = faqs.filter(faq => faq.category === category.id).length;
+                return `
+                    <div class="topic-card" data-category="${category.id}">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            ${category.id === 'loans' ? '<rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M7 15h10"></path><path d="M7 8h10"></path>' :
+                             category.id === 'eligibility' ? '<path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="10"></line><line x1="23" y1="11" x2="17" y2="11"></line>' :
+                             category.id === 'repayment' ? '<path d="M17 9V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path><path d="M19 19V13a2 2 0 0 0-2-2H9"></path><path d="m13 16 6-6"></path><path d="m16 13 3 3"></path>' :
+                             '<path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path><path d="M4 8h16"></path><path d="M8 8v12"></path><path d="M12 8v12"></path><path d="M16 8v12"></path>'}
+                        </svg>
+                        <h3>${category.name}</h3>
+                        <p>${count} questions</p>
+                    </div>
+                `;
+            }).join('');
+
+            document.querySelectorAll('.topic-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    selectedCategory = card.dataset.category;
+                    updateCategoryButtons();
+                    renderFAQs();
+                });
+            });
+        }
+
+        // Update category buttons
+        function updateCategoryButtons() {
+            categoryButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.category === selectedCategory);
+            });
+        }
+
+        // Event Listeners
+        searchInput.addEventListener('input', () => {
+            searchTerm = searchInput.value;
+            renderFAQs();
+        });
+
+        categoryButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                selectedCategory = btn.dataset.category;
+                updateCategoryButtons();
+                renderFAQs();
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        }
+
+        mobileMenu.addEventListener('click', toggleMobileMenu);
+
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.style.background = window.scrollY > 100 ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)';
+            header.style.boxShadow = window.scrollY > 100 ? '0 2px 20px rgba(0,0,0,0.1)' : '0 2px 20px rgba(0,0,0,0.05)';
+        });
+
+        // Initialize
+        renderFAQs();
+        renderTopics();
+    </script>
+</body>
+</html>

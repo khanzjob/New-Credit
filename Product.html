@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Credit Craft's loan products in Uganda, including personal loans, SME loans, asset financing, and salary advances. Learn about features, eligibility, and required documents.">
+    <title>Loan Products - Credit Craft</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --primary-blue-light: #3b82f6;
+            --primary-yellow: #eab308;
+            --primary-yellow-light: #fbbf24;
+            --text-dark: #111827;
+            --text-gray: #6b7280;
+            --text-light: #9ca3af;
+            --bg-gray: #f8fafc;
+            --bg-gray-dark: #f1f5f9;
+            --white: #ffffff;
+            --green: #10b981;
+            --red: #ef4444;
+            --orange: #f97316;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --gradient-primary: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #1f2937 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #eab308 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-gray);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-accent);
+            color: var(--primary-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(234, 179, 8, 0.1));
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.6s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: var(--primary-blue);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Loan Products Section */
+        .products-section {
+            padding: 5rem 0;
+        }
+
+        .products-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            background: var(--bg-gray-dark);
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .card-header-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-header img {
+            width: 3rem;
+            height: 3rem;
+        }
+
+        .card-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        .card-header p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .card-content {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        .card-main {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card-main p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .card-main h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .feature-list,
+        .eligibility-list,
+        .documents-list {
+            list-style: none;
+        }
+
+        .feature-list li,
+        .documents-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list i,
+        .documents-list i {
+            color: var(--green);
+            font-size: 0.9rem;
+        }
+
+        .eligibility-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .eligibility-list li::before {
+            content: '';
+            width: 0.5rem;
+            height: 0.5rem;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .card-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sidebar-card {
+            background: var(--white);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .sidebar-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .sidebar-item-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .sidebar-item-header i {
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            background: var(--bg-gray-dark);
+            color: var(--text-dark);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .sidebar-item p {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .btn-apply {
+            background: var(--primary-blue);
+            color: var(--white);
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-apply:hover {
+            background: var(--primary-blue-light);
+        }
+
+        /* Application Process Section */
+        .process-section {
+            background: var(--bg-gray-dark);
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-item {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .process-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .process-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .process-item p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-primary);
+            padding: 5rem 0;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .cta-content {
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .card-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .card-content {
+                padding: 1.5rem;
+            }
+
+            .sidebar-card {
+                padding: 1rem;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--text-light);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-gray);
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="./index.html" class="logo">Credit Craft</a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="./Product.html">Loan Products</a></li>
+                <li><a href="index.html#calculator">Calculator</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+                <li><a href="./CreditAdvisory.html">Advisory Services</a></li>
+            </ul>
+            <a href="./loan_applications.html" class="nav-cta">Apply Now</a>
+            <div class="mobile-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Our Loan Products</h1>
+                <p>Choose from our comprehensive range of financial products designed to meet your specific needs, whether personal or business.</p>
+                <a href="./loan_applications.html" class="btn btn-primary">
+                    <i class="fas fa-file-alt"></i>
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="products-container">
+                <!-- Personal Loans -->
+                <div id="personal" class="product-card">
+                    <div class="card-header">
+                        <div class="card-header-content">
+                            <img src="../../new/manus/manus/manus/src/assets/personal_loans_icon.png" alt="Personal Loans">
+                            <div>
+                                <h3>Personal Loans</h3>
+                                <p>Quick access to funds for personal needs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-main">
+                            <p>Our personal loans are designed to help you meet immediate financial needs, whether it's for medical expenses, education, home improvements, or other personal emergencies.</p>
+                            <div>
+                                <h4>Key Features</h4>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle"></i> No collateral required for loans up to UGX 5M</li>
+                                    <li><i class="fas fa-check-circle"></i> Flexible repayment terms</li>
+                                    <li><i class="fas fa-check-circle"></i> Quick approval process</li>
+                                    <li><i class="fas fa-check-circle"></i> Competitive interest rates</li>
+                                    <li><i class="fas fa-check-circle"></i> No hidden fees</li>
+                                    <li><i class="fas fa-check-circle"></i> Early repayment options</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Eligibility Criteria</h4>
+                                <ul class="eligibility-list">
+                                    <li>Ugandan citizen aged 21-65 years</li>
+                                    <li>Regular monthly income (employed or self-employed)</li>
+                                    <li>Valid national ID</li>
+                                    <li>Bank statements for last 3 months</li>
+                                    <li>Proof of income (salary slip or business records)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Required Documents</h4>
+                                <ul class="documents-list">
+                                    <li><i class="fas fa-file-alt"></i> National ID (copy)</li>
+                                    <li><i class="fas fa-file-alt"></i> Passport photos (2)</li>
+                                    <li><i class="fas fa-file-alt"></i> Bank statements (3 months)</li>
+                                    <li><i class="fas fa-file-alt"></i> Salary slip or income proof</li>
+                                    <li><i class="fas fa-file-alt"></i> Utility bill (proof of residence)</li>
+                                    <li><i class="fas fa-file-alt"></i> Employment letter (if employed)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-sidebar">
+                            <div class="sidebar-card">
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Interest Rate</span>
+                                    </div>
+                                    <div class="badge">18% - 24%</div>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Loan Amount</span>
+                                    </div>
+                                    <p>UGX 500,000 - 50,000,000</p>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Repayment Period</span>
+                                    </div>
+                                    <p>3 - 36 months</p>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Processing Time</span>
+                                    </div>
+                                    <p>24 - 48 hours</p>
+                                </div>
+                                <a href="./loan_applications.html" class="btn btn-apply">Apply for This Loan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SME Loans -->
+                <div id="business" class="product-card">
+                    <div class="card-header">
+                        <div class="card-header-content">
+                            <img src="../../new/manus/manus/manus/src/assets/business_loans_icon.png" alt="SME Loans">
+                            <div>
+                                <h3>SME Loans</h3>
+                                <p>Fuel your business growth</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-main">
+                            <p>Designed specifically for small and medium enterprises, our business loans provide the capital you need to expand operations, purchase inventory, or invest in new opportunities.</p>
+                            <div>
+                                <h4>Key Features</h4>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle"></i> Tailored for SMEs</li>
+                                    <li><i class="fas fa-check-circle"></i> Flexible collateral options</li>
+                                    <li><i class="fas fa-check-circle"></i> Business advisory support</li>
+                                    <li><i class="fas fa-check-circle"></i> Seasonal payment options</li>
+                                    <li><i class="fas fa-check-circle"></i> Working capital solutions</li>
+                                    <li><i class="fas fa-check-circle"></i> Equipment financing available</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Eligibility Criteria</h4>
+                                <ul class="eligibility-list">
+                                    <li>Registered business in Uganda</li>
+                                    <li>Business operational for at least 12 months</li>
+                                    <li>Valid business license</li>
+                                    <li>Business bank account</li>
+                                    <li>Satisfactory credit history</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Required Documents</h4>
+                                <ul class="documents-list">
+                                    <li><i class="fas fa-file-alt"></i> Business registration certificate</li>
+                                    <li><i class="fas fa-file-alt"></i> Business license</li>
+                                    <li><i class="fas fa-file-alt"></i> Tax identification number (TIN)</li>
+                                    <li><i class="fas fa-file-alt"></i> Business bank statements (6 months)</li>
+                                    <li><i class="fas fa-file-alt"></i> Financial statements (audited if available)</li>
+                                    <li><i class="fas fa-file-alt"></i> Business plan or proposal</li>
+                                    <li><i class="fas fa-file-alt"></i> Collateral documents (if applicable)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-sidebar">
+                            <div class="sidebar-card">
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Interest Rate</span>
+                                    </div>
+                                    <div class="badge">15% - 20%</div>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Loan Amount</span>
+                                    </div>
+                                    <p>UGX 1,000,000 - 200,000,000</p>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Repayment Period</span>
+                                    </div>
+                                    <p>6 - 60 months</p>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Processing Time</span>
+                                    </div>
+                                    <p>3 - 7 days</p>
+                                </div>
+                                <a href="./loan_applications.html" class="btn btn-apply">Apply for This Loan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Asset Financing -->
+                <div id="asset" class="product-card">
+                    <div class="card-header">
+                        <div class="card-header-content">
+                            <img src="../../new/manus/manus/manus/src/assets/asset_financing_icon.png" alt="Asset Financing">
+                            <div>
+                                <h3>Asset Financing</h3>
+                                <p>Finance vehicles, equipment, and property</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-main">
+                            <p>Our asset financing solutions help you acquire vehicles, machinery, equipment, or property for personal or business use with the asset serving as collateral.</p>
+                            <div>
+                                <h4>Key Features</h4>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle"></i> Up to 90% financing of asset value</li>
+                                    <li><i class="fas fa-check-circle"></i> Competitive interest rates</li>
+                                    <li><i class="fas fa-check-circle"></i> Flexible repayment terms</li>
+                                    <li><i class="fas fa-check-circle"></i> Quick asset valuation</li>
+                                    <li><i class="fas fa-check-circle"></i> Insurance facilitation</li>
+                                    <li><i class="fas fa-check-circle"></i> Balloon payment options</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Eligibility Criteria</h4>
+                                <ul class="eligibility-list">
+                                    <li>Ugandan citizen or registered business</li>
+                                    <li>Stable income source</li>
+                                    <li>Good credit history</li>
+                                    <li>Asset must be less than 10 years old</li>
+                                    <li>Comprehensive insurance required</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Required Documents</h4>
+                                <ul class="documents-list">
+                                    <li><i class="fas fa-file-alt"></i> National ID or business registration</li>
+                                    <li><i class="fas fa-file-alt"></i> Income proof (3 months)</li>
+                                    <li><i class="fas fa-file-alt"></i> Asset quotation or valuation</li>
+                                    <li><i class="fas fa-file-alt"></i> Insurance quotation</li>
+                                    <li><i class="fas fa-file-alt"></i> Bank statements (3 months)</li>
+                                    <li><i class="fas fa-file-alt"></i> Asset inspection report</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-sidebar">
+                            <div class="sidebar-card">
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Interest Rate</span>
+                                    </div>
+                                    <div class="badge">12% - 18%</div>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Loan Amount</span>
+                                    </div>
+                                    <p>UGX 5,000,000 - 500,000,000</p>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Repayment Period</span>
+                                    </div>
+                                    <p>12 - 84 months</p>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Processing Time</span>
+                                    </div>
+                                    <p>5 - 10 days</p>
+                                </div>
+                                <a href="./loan_applications.html" class="btn btn-apply">Apply for This Loan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Salary Advance -->
+                <div id="salary" class="product-card">
+                    <div class="card-header">
+                        <div class="card-header-content">
+                            <img src="../../new/manus/manus/manus/src/assets/security_icon.png" alt="Salary Advance">
+                            <div>
+                                <h3>Salary Advance</h3>
+                                <p>Quick cash advances against your salary</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-main">
+                            <p>Get instant access to your future salary with our salary advance product. Perfect for urgent expenses that can't wait until payday.</p>
+                            <div>
+                                <h4>Key Features</h4>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle"></i> Same-day approval</li>
+                                    <li><i class="fas fa-check-circle"></i> No collateral required</li>
+                                    <li><i class="fas fa-check-circle"></i> Automatic salary deduction</li>
+                                    <li><i class="fas fa-check-circle"></i> Low processing fees</li>
+                                    <li><i class="fas fa-check-circle"></i> Instant mobile money disbursement</li>
+                                    <li><i class="fas fa-check-circle"></i> Renewable facility</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Eligibility Criteria</h4>
+                                <ul class="eligibility-list">
+                                    <li>Permanent employee with recognized employer</li>
+                                    <li>Minimum 6 months employment</li>
+                                    <li>Salary processed through bank</li>
+                                    <li>Monthly salary above UGX 500,000</li>
+                                    <li>Employer partnership agreement</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4>Required Documents</h4>
+                                <ul class="documents-list">
+                                    <li><i class="fas fa-file-alt"></i> National ID (copy)</li>
+                                    <li><i class="fas fa-file-alt"></i> Employment letter</li>
+                                    <li><i class="fas fa-file-alt"></i> Recent salary slips (3 months)</li>
+                                    <li><i class="fas fa-file-alt"></i> Bank statements (3 months)</li>
+                                    <li><i class="fas fa-file-alt"></i> Employer consent letter</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-sidebar">
+                            <div class="sidebar-card">
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Interest Rate</span>
+                                    </div>
+                                    <div class="badge">2% - 5% per month</div>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-dollar-sign"></i>
+                                        <span>Loan Amount</span>
+                                    </div>
+                                    <p>UGX 100,000 - 5,000,000</p>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>Repayment Period</span>
+                                    </div>
+                                    <p>1 - 6 months</p>
+                                </div>
+                                <div class="sidebar-item">
+                                    <div class="sidebar-item-header">
+                                        <i class="fas fa-clock"></i>
+                                        <span>Processing Time</span>
+                                    </div>
+                                    <p>2 - 4 hours</p>
+                                </div>
+                                <a href="./loan_applications.html" class="btn btn-apply">Apply for This Loan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process Section -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Simple Application Process</h2>
+                <p>Getting your loan approved is easy with our streamlined process</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="process-step">1</div>
+                    <h3>Apply Online</h3>
+                    <p>Fill out our simple online application form</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="process-step">2</div>
+                    <h3>Document Review</h3>
+                    <p>Our team reviews your documents and application</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="process-step">3</div>
+                    <h3>Approval Decision</h3>
+                    <p>Get approval notification within our processing time</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="process-step">4</div>
+                    <h3>Loan Disbursement</h3>
+                    <p>Funds are disbursed to your account or mobile money</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Apply?</h2>
+                <p>Choose the loan product that best fits your needs and start your application today</p>
+                <div class="cta-buttons">
+                    <a href="./loan_applications.html" class="btn btn-primary">
+                        <i class="fas fa-file-alt"></i>
+                        Start Your Application
+                    </a>
+                    <a href="index.html#contact" class="btn btn-outline">
+                        <i class="fas fa-user"></i>
+                        Speak to an Advisor
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize page
+        function initPage() {
+            setupMobileMenu();
+            setupHeaderScroll();
+        }
+
+        // Mobile menu setup
+        function setupMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenu.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+
+        // Header scroll effect
+        function setupHeaderScroll() {
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                header.style.background = window.scrollY > 100 ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = window.scrollY > 100 ? '0 2px 20px rgba(0,0,0,0.1)' : '0 2px 20px rgba(0,0,0,0.05)';
+            });
+        }
+
+        // Initialize page on load
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>

@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Credit Craft's financial advisory services in Uganda, including credit score management, financial literacy training, business consulting, and debt consolidation. Book a consultation or join our workshops.">
+    <title>Credit Advisory Services - Credit Craft</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --primary-blue-light: #3b82f6;
+            --primary-yellow: #eab308;
+            --primary-yellow-light: #fbbf24;
+            --text-dark: #111827;
+            --text-gray: #6b7280;
+            --text-light: #9ca3af;
+            --bg-gray: #f8fafc;
+            --bg-gray-dark: #f1f5f9;
+            --white: #ffffff;
+            --green: #10b981;
+            --red: #ef4444;
+            --orange: #f97316;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --gradient-primary: linear-gradient(135deg, #1e40af 0%, #1e3a8a 50%, #1f2937 100%);
+            --gradient-accent: linear-gradient(135deg, #f59e0b 0%, #eab308 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --border-radius: 12px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-gray);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            transition: var(--transition);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-accent);
+            color: var(--primary-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+            padding: 0.5rem;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-dark);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        .mobile-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.1), rgba(234, 179, 8, 0.1));
+            z-index: 0;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-yellow);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transition: all 0.6s ease;
+            transform: translate(-50%, -50%);
+        }
+
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: var(--primary-blue);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            filter: brightness(0) invert(1);
+            border-radius: var(--border-radius);
+        }
+
+        /* Services Section */
+        .services-section,
+        .workshops-section,
+        .why-choose-section,
+        .appointment-section {
+            padding: 5rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid,
+        .workshops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card,
+        .workshop-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+        }
+
+        .service-card:hover,
+        .workshop-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .card-header .icon-container {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: var(--border-radius);
+            margin-right: 1rem;
+        }
+
+        .card-header i {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+        }
+
+        .card-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .card-header p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-list i {
+            color: var(--green);
+            font-size: 0.9rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .card-footer .info {
+            font-size: 0.9rem;
+        }
+
+        .card-footer .info i {
+            margin-right: 0.5rem;
+            color: var(--text-gray);
+        }
+
+        .card-footer .price {
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        /* Why Choose Section */
+        .why-choose-section {
+            background: var(--bg-gray-dark);
+        }
+
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .why-choose-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .why-choose-item .icon-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem;
+            height: 4rem;
+            background: var(--primary-blue);
+            color: var(--white);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+        }
+
+        .why-choose-item i {
+            font-size: 1.75rem;
+        }
+
+        .why-choose-item h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .why-choose-item p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        /* Appointment Section */
+        .appointment-section {
+            background: var(--gradient-primary);
+            color: var(--white);
+        }
+
+        .appointment-form {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: block;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .required::after {
+            content: ' *';
+            color: var(--red);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .form-group input.error,
+        .form-group select.error,
+        .form-group textarea.error {
+            border-color: var(--red);
+            background-color: rgba(239, 68, 68, 0.05);
+        }
+
+        .error-message {
+            color: var(--red);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .error-message i {
+            font-size: 0.8rem;
+        }
+
+        .error-message.hidden {
+            display: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .alert {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid var(--green);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .alert i {
+            color: var(--green);
+            font-size: 1rem;
+        }
+
+        .alert p {
+            color: var(--green);
+            font-size: 0.95rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-item i {
+            color: var(--white);
+            font-size: 1rem;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--gradient-success);
+            color: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            z-index: 1000;
+            transform: translateX(400px);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .notification.active {
+            transform: translateX(0);
+        }
+
+        .notification i {
+            font-size: 1.2rem;
+        }
+
+        /* Loading States */
+        .loading {
+            position: relative;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                margin-top: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .workshops-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-choose-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .notification {
+                right: 10px;
+                left: 10px;
+                transform: translateY(-100px);
+            }
+
+            .notification.active {
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 0.5rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .appointment-form {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-gray);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--text-light);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-gray);
+        }
+
+        /* Accessibility improvements */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="./index.html" class="logo">Credit Craft</a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#products">Loan Products</a></li>
+                <li><a href="index.html#calculator">Calculator</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="./faq.html">FAQ</a></li>
+                <li><a href="credit-advisory.html#services">Advisory Services</a></li>
+            </ul>
+            <a href="./loan_applications.html" class="nav-cta">Apply Now</a>
+            <div class="mobile-menu" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>
+                        Credit Advisory <span>Services</span>
+                    </h1>
+                    <p>
+                        Expert guidance on credit management, financial literacy, and strategic financial planning to help you achieve your financial goals.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#appointment" class="btn btn-primary">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Consultation
+                        </a>
+                        <a href="#workshops" class="btn btn-outline">
+                            <i class="fas fa-book-open"></i>
+                            View Workshops
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Placeholder for credit_advisory_icon.png -->
+                    <img src="https://via.placeholder.com/400x400?text=Advisory+Icon" alt="Credit Advisory Services">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Advisory Services</h2>
+                <p>Comprehensive financial advisory services tailored to your individual or business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div>
+                            <h3>Credit Score Management</h3>
+                            <p>Understand and improve your credit score with personalized strategies and monitoring.</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Credit score analysis and interpretation</li>
+                            <li><i class="fas fa-check-circle"></i> Personalized improvement strategies</li>
+                            <li><i class="fas fa-check-circle"></i> Monthly credit monitoring</li>
+                            <li><i class="fas fa-check-circle"></i> Dispute resolution assistance</li>
+                            <li><i class="fas fa-check-circle"></i> Credit history optimization</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="info">
+                                <div><i class="fas fa-clock"></i> 1-3 months</div>
+                                <div class="price">From UGX 150,000</div>
+                            </div>
+                            <a href="#appointment" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div>
+                            <h3>Financial Literacy Training</h3>
+                            <p>Comprehensive financial education to help you make informed financial decisions.</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Personal budgeting and planning</li>
+                            <li><i class="fas fa-check-circle"></i> Investment basics and strategies</li>
+                            <li><i class="fas fa-check-circle"></i> Debt management techniques</li>
+                            <li><i class="fas fa-check-circle"></i> Savings and emergency fund planning</li>
+                            <li><i class="fas fa-check-circle"></i> Financial goal setting</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="info">
+                                <div><i class="fas fa-clock"></i> 4-6 weeks</div>
+                                <div class="price">From UGX 200,000</div>
+                            </div>
+                            <a href="#appointment" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div>
+                            <h3>Business Financial Consulting</h3>
+                            <p>Expert guidance for small businesses on financial management and growth strategies.</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Cash flow management</li>
+                            <li><i class="fas fa-check-circle"></i> Business credit building</li>
+                            <li><i class="fas fa-check-circle"></i> Financial planning and forecasting</li>
+                            <li><i class="fas fa-check-circle"></i> Loan preparation and application support</li>
+                            <li><i class="fas fa-check-circle"></i> Investment and expansion planning</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="info">
+                                <div><i class="fas fa-clock"></i> Ongoing</div>
+                                <div class="price">From UGX 500,000</div>
+                            </div>
+                            <a href="#appointment" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="card-header">
+                        <div class="icon-container">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div>
+                            <h3>Debt Consolidation Planning</h3>
+                            <p>Strategic planning to consolidate and manage multiple debts effectively.</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="feature-list">
+                            <li><i class="fas fa-check-circle"></i> Debt assessment and analysis</li>
+                            <li><i class="fas fa-check-circle"></i> Consolidation strategy development</li>
+                            <li><i class="fas fa-check-circle"></i> Negotiation with creditors</li>
+                            <li><i class="fas fa-check-circle"></i> Repayment plan optimization</li>
+                            <li><i class="fas fa-check-circle"></i> Long-term debt management</li>
+                        </ul>
+                        <div class="card-footer">
+                            <div class="info">
+                                <div><i class="fas fa-clock"></i> 2-4 months</div>
+                                <div class="price">From UGX 300,000</div>
+                            </div>
+                            <a href="#appointment" class="btn btn-outline">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Our Advisory Services?</h2>
+                <p>Our experienced financial advisors provide personalized guidance to help you achieve financial success</p>
+            </div>
+            <div class="why-choose-grid">
+                <div class="why-choose-item">
+                    <div class="icon-container">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Personalized Approach</h3>
+                    <p>Every client receives customized advice based on their unique financial situation and goals.</p>
+                </div>
+                <div class="why-choose-item">
+                    <div class="icon-container">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Expert Advisors</h3>
+                    <p>Our certified financial advisors have years of experience in the Ugandan financial market.</p>
+                </div>
+                <div class="why-choose-item">
+                    <div class="icon-container">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Proven Results</h3>
+                    <p>Track record of helping clients improve their credit scores and achieve financial stability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section id="workshops" class="workshops-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Financial Literacy Workshops</h2>
+                <p>Join our regular workshops to enhance your financial knowledge and skills</p>
+            </div>
+            <div class="workshops-grid">
+                <div class="workshop-card">
+                    <div class="card-content">
+                        <h3>Personal Finance Fundamentals</h3>
+                        <p>Learn the basics of personal finance, budgeting, and saving strategies.</p>
+                        <div class="feature-list">
+                            <div><i class="fas fa-calendar-alt"></i> Every Saturday</div>
+                            <div><i class="fas fa-clock"></i> 10:00 AM - 12:00 PM</div>
+                            <div><i class="fas fa-map-marker-alt"></i> Credit Craft Office, Kampala</div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="info">
+                                <div class="price">UGX 50,000</div>
+                            </div>
+                            <a href="#appointment" class="btn btn-primary">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <div class="card-content">
+                        <h3>Building Your Credit Score</h3>
+                        <p>Understand credit scores and learn practical steps to improve yours.</p>
+                        <div class="feature-list">
+                            <div><i class="fas fa-calendar-alt"></i> 2nd Saturday of each month</div>
+                            <div><i class="fas fa-clock"></i> 2:00 PM - 4:00 PM</div>
+                            <div><i class="fas fa-map-marker-alt"></i> Credit Craft Office, Kampala</div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="info">
+                                <div class="price">UGX 75,000</div>
+                            </div>
+                            <a href="#appointment" class="btn btn-primary">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <div class="card-content">
+                        <h3>Small Business Financial Management</h3>
+                        <p>Comprehensive workshop for small business owners on financial management.</p>
+                        <div class="feature-list">
+                            <div><i class="fas fa-calendar-alt"></i> Last Friday of each month</div>
+                            <div><i class="fas fa-clock"></i> 9:00 AM - 1:00 PM</div>
+                            <div><i class="fas fa-map-marker-alt"></i> Credit Craft Office, Kampala</div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="info">
+                                <div class="price">UGX 150,000</div>
+                            </div>
+                            <a href="#appointment" class="btn btn-primary">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="workshop-card">
+                    <div class="card-content">
+                        <h3>Investment Basics for Beginners</h3>
+                        <p>Introduction to investment options and strategies for beginners.</p>
+                        <div class="feature-list">
+                            <div><i class="fas fa-calendar-alt"></i> 3rd Saturday of each month</div>
+                            <div><i class="fas fa-clock"></i> 10:00 AM - 2:00 PM</div>
+                            <div><i class="fas fa-map-marker-alt"></i> Credit Craft Office, Kampala</div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="info">
+                                <div class="price">UGX 100,000</div>
+                            </div>
+                            <a href="#appointment" class="btn btn-primary">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="appointment-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Book Your Consultation</h2>
+                <p>Schedule a personalized consultation with our financial advisors to discuss your specific needs</p>
+            </div>
+            <div class="appointment-form">
+                <div id="formSuccess" class="alert hidden">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Thank you! Your appointment request has been submitted. We'll contact you within 24 hours to confirm your consultation.</p>
+                </div>
+                <form id="appointmentForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name" class="required">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                            <p class="error-message hidden" id="nameError"><i class="fas fa-exclamation-circle"></i> Full name is required</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="required">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            <p class="error-message hidden" id="emailError"><i class="fas fa-exclamation-circle"></i> Please enter a valid email</p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone" class="required">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+256 700 000 000" required>
+                            <p class="error-message hidden" id="phoneError"><i class="fas fa-exclamation-circle"></i> Please enter a valid phone number</p>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="credit-score">Credit Score Management</option>
+                                <option value="financial-literacy">Financial Literacy Training</option>
+                                <option value="business-consulting">Business Financial Consulting</option>
+                                <option value="debt-consolidation">Debt Consolidation Planning</option>
+                                <option value="general">General Consultation</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="preferredDate">Preferred Date</label>
+                            <input type="date" id="preferredDate" name="preferredDate">
+                        </div>
+                        <div class="form-group">
+                            <label for="preferredTime">Preferred Time</label>
+                            <select id="preferredTime" name="preferredTime">
+                                <option value="">Select time</option>
+                                <option value="9:00">9:00 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="14:00">2:00 PM</option>
+                                <option value="15:00">3:00 PM</option>
+                                <option value="16:00">4:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Information</label>
+                        <textarea id="message" name="message" placeholder="Please describe your specific needs or questions..." rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full" id="submitBtn">
+                        <i class="fas fa-calendar-check"></i>
+                        Book Consultation
+                    </button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>+256 700 123 456</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>advisory@creditcraft.ug</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText">Appointment booked successfully!</span>
+    </div>
+
+    <script>
+        // Form state management
+        const formData = {
+            name: '',
+            email: '',
+            phone: '',
+            service: '',
+            preferredDate: '',
+            preferredTime: '',
+            message: ''
+        };
+
+        // DOM Elements
+        const form = document.getElementById('appointmentForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const formSuccess = document.getElementById('formSuccess');
+        const notification = document.getElementById('notification');
+        const notificationText = document.getElementById('notificationText');
+
+        // Initialize page
+        function initPage() {
+            setupEventListeners();
+            setupMobileMenu();
+            setupHeaderScroll();
+            loadSavedData();
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            form.addEventListener('submit', handleSubmit);
+            document.querySelectorAll('input, select, textarea').forEach(input => {
+                input.addEventListener('input', handleFieldChange);
+                input.addEventListener('change', handleFieldChange);
+            });
+        }
+
+        // Handle field changes
+        function handleFieldChange(e) {
+            const { name, value } = e.target;
+            formData[name] = value;
+            clearError(name);
+        }
+
+        // Handle form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            if (validateForm()) {
+                submitBtn.classList.add('loading');
+                submitBtn.disabled = true;
+
+                // Simulate API call
+                setTimeout(() => {
+                    console.log('Submitting appointment:', formData);
+                    localStorage.setItem('creditCraftAdvisoryForm', JSON.stringify(formData));
+                    formSuccess.classList.remove('hidden');
+                    form.style.display = 'none';
+                    showNotification('Appointment booked successfully!', true);
+                    setTimeout(() => {
+                        formSuccess.classList.add('hidden');
+                        form.style.display = 'block';
+                        form.reset();
+                        Object.keys(formData).forEach(key => formData[key] = '');
+                        submitBtn.classList.remove('loading');
+                        submitBtn.disabled = false;
+                    }, 5000);
+                }, 2000);
+            }
+        }
+
+        // Validate form
+        function validateForm() {
+            let isValid = true;
+            const requiredFields = ['name', 'email', 'phone'];
+
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                const errorEl = document.getElementById(`${field}Error`);
+
+                if (!formData[field]) {
+                    input.classList.add('error');
+                    errorEl.classList.remove('hidden');
+                    isValid = false;
+                } else {
+                    if (field === 'email') {
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(formData[field])) {
+                            input.classList.add('error');
+                            errorEl.textContent = '<i class="fas fa-exclamation-circle"></i> Please enter a valid email';
+                            errorEl.classList.remove('hidden');
+                            isValid = false;
+                        }
+                    } else if (field === 'phone') {
+                        const phoneRegex = /^\+256\s?\d{9}$/;
+                        if (!phoneRegex.test(formData[field])) {
+                            input.classList.add('error');
+                            errorEl.textContent = '<i class="fas fa-exclamation-circle"></i> Please enter a valid phone number (e.g., +256 700 000 000)';
+                            errorEl.classList.remove('hidden');
+                            isValid = false;
+                        }
+                    }
+                }
+            });
+
+            return isValid;
+        }
+
+        // Clear error for a field
+        function clearError(field) {
+            const input = document.getElementById(field);
+            const errorEl = document.getElementById(`${field}Error`);
+            if (input && errorEl) {
+                input.classList.remove('error');
+                errorEl.classList.add('hidden');
+            }
+        }
+
+        // Load saved data from localStorage
+        function loadSavedData() {
+            const saved = localStorage.getItem('creditCraftAdvisoryForm');
+            if (saved) {
+                const data = JSON.parse(saved);
+                Object.keys(formData).forEach(key => {
+                    formData[key] = data[key] || '';
+                    const input = document.getElementById(key);
+                    if (input) input.value = formData[key];
+                });
+            }
+        }
+
+        // Show notification
+        function showNotification(message, isSuccess = true) {
+            notificationText.textContent = message;
+            notification.style.background = isSuccess ? 'var(--gradient-success)' : 'linear-gradient(135deg, #ef4444, #b91c1c)';
+            notification.classList.add('active');
+            setTimeout(() => {
+                notification.classList.remove('active');
+            }, 3000);
+        }
+
+        // Mobile menu setup
+        function setupMobileMenu() {
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenu.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+
+        // Header scroll effect
+        function setupHeaderScroll() {
+            window.addEventListener('scroll', () => {
+                const header = document.querySelector('header');
+                header.style.background = window.scrollY > 100 ? 'rgba(255, 255, 255, 0.98)' : 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = window.scrollY > 100 ? '0 2px 20px rgba(0,0,0,0.1)' : '0 2px 20px rgba(0,0,0,0.05)';
+            });
+        }
+
+        // Initialize page on load
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>
