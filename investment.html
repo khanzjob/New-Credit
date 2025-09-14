@@ -844,16 +844,16 @@
     <!-- Header -->
     <header>
         <nav class="container">
-            <a href="#" class="logo">Credit Craft</a>
+            <div class="logo">Credit Craft</div>
             <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#products">Loans</a></li>
-                <li><a href="#investments" class="active">Investments</a></li>
-                <li><a href="index.html#calculator">Calculator</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./CreditAdvisory.html">creditCraftAdvisory</a></li>
+                <li><a href="./Product.html">Loan Products</a></li>
+                <li><a href="./investment.html">Investiment</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="apply.html" class="nav-cta">Get Started</a>
+            <a href="#" class="nav-cta">Login</a>
             <div class="mobile-menu" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -925,7 +925,7 @@
                         <li><i class="fas fa-check"></i> Quarterly dividends</li>
                     </ul>
                     
-                    <button class="investment-btn" onclick="openInvestmentModal('moderate')">
+                    <button class="investment-btn" onclick="openInvestmentModal('conservative')">
                         Start Investing
                     </button>
                 </div>
@@ -1003,7 +1003,7 @@
                         <li><i class="fas fa-check"></i> Profit sharing model</li>
                     </ul>
                     
-                    <button class="investment-btn" onclick="openInvestmentModal('islamic')">
+                    <button class="investment-btn" onclick="openInvestmentModal('moderate')">
                         Start Investing
                     </button>
                 </div>
@@ -1031,6 +1031,32 @@
                     
                     <button class="investment-btn" onclick="openSIPModal()">
                         Start SIP
+                    </button>
+                </div>
+
+                <!-- Moderate Portfolio -->
+                <div class="product-card moderate fade-in">
+                    <div class="product-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Balanced Portfolio</h3>
+                    <p class="subtitle">Moderate risk, balanced growth</p>
+                    
+                    <div class="returns-display">
+                        <div class="label">Expected Annual Return</div>
+                        <div class="value">12-18%</div>
+                    </div>
+                    
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 60% bonds, 40% equities</li>
+                        <li><i class="fas fa-check"></i> Diversified across sectors</li>
+                        <li><i class="fas fa-check"></i> Regular rebalancing</li>
+                        <li><i class="fas fa-check"></i> Minimum investment: UGX 1,000,000</li>
+                        <li><i class="fas fa-check"></i> Semi-annual dividends</li>
+                    </ul>
+                    
+                    <button class="investment-btn" onclick="openInvestmentModal('moderate')">
+                        Start Investing
                     </button>
                 </div>
             </div>
@@ -1512,7 +1538,7 @@
 
         // Calculate projected returns
         function calculateProjectedReturns() {
-            const amount = parseFloat(document.getElementById('investmentAmount')?.value) || 0;
+            const amount = parseFloat(document.getElementById('investmentAmount')?.value.replace(/,/g, '')) || 0;
             const duration = parseFloat(document.getElementById('investmentDuration')?.value) || 0;
             const rate = portfolioRates[currentPortfolio] || 0.12;
             
@@ -1533,22 +1559,20 @@
 
         // Submit investment
         function submitInvestment() {
-            const amount = document.getElementById('investmentAmount').value;
+            const amount = document.getElementById('investmentAmount').value.replace(/,/g, '');
             const duration = document.getElementById('investmentDuration').value;
-            
-            if (!amount || !duration) {
-                alert('Please fill in all required fields.');
+            const errors = validateInvestmentForm();
+
+            if (errors.length > 0) {
+                showNotification(errors.join('\n'), 'error');
                 return;
             }
-            
-            if (parseFloat(amount) < 500000) {
-                alert('Minimum investment amount is UGX 500,000.');
-                return;
-            }
-            
-            // Simulate API call
-            alert(`Investment application submitted successfully!\n\nPortfolio: ${currentPortfolio}\nAmount: UGX ${parseFloat(amount).toLocaleString()}\nDuration: ${duration} months\n\nOur investment team will contact you within 24 hours.`);
-            closeInvestmentModal();
+
+            addLoadingState(document.querySelector('#investmentModal .btn-primary'));
+            setTimeout(() => {
+                showNotification(`Investment application submitted successfully!\n\nPortfolio: ${currentPortfolio}\nAmount: UGX ${parseFloat(amount).toLocaleString()}\nDuration: ${duration} months\n\nOur investment team will contact you within 24 hours.`, 'success');
+                closeInvestmentModal();
+            }, 2000);
         }
 
         // Calculate risk profile
@@ -1576,7 +1600,7 @@
             });
             
             if (!allAnswered) {
-                alert('Please answer all questions to get your risk profile.');
+                showNotification('Please answer all questions to get your risk profile.', 'error');
                 return;
             }
             
@@ -1807,33 +1831,6 @@
             }
         `;
         document.head.appendChild(style);
-
     </script>
 </body>
-</html>conservative')">
-                        Start Investing
-                    </button>
-                </div>
-
-                <!-- Moderate Portfolio -->
-                <div class="product-card moderate fade-in">
-                    <div class="product-icon">
-                        <i class="fas fa-balance-scale"></i>
-                    </div>
-                    <h3>Balanced Portfolio</h3>
-                    <p class="subtitle">Moderate risk, balanced growth</p>
-                    
-                    <div class="returns-display">
-                        <div class="label">Expected Annual Return</div>
-                        <div class="value">12-18%</div>
-                    </div>
-                    
-                    <ul class="features-list">
-                        <li><i class="fas fa-check"></i> 60% bonds, 40% equities</li>
-                        <li><i class="fas fa-check"></i> Diversified across sectors</li>
-                        <li><i class="fas fa-check"></i> Regular rebalancing</li>
-                        <li><i class="fas fa-check"></i> Minimum investment: UGX 1,000,000</li>
-                        <li><i class="fas fa-check"></i> Semi-annual dividends</li>
-                    </ul>
-                    
-                    <button class="investment-btn" onclick="openInvestmentModal('
+</html>
