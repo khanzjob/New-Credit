@@ -907,11 +907,11 @@
             <div class="logo">Credit Craft</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="./Product.html">Loan Products</a></li>
-                <li><a href="#calculator">Calculator</a></li>
                 <li><a href="./about.html">About</a></li>
-                <li><a href="#contact">Contact</a></li>
                 <li><a href="./CreditAdvisory.html">creditCraftAdvisory</a></li>
+                <li><a href="./Product.html">Loan Products</a></li>
+                <!-- <li><a href="#calculator">Calculator</a></li> -->
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="#" class="nav-cta">Login</a>
             <div class="mobile-menu" aria-label="Toggle menu">
@@ -965,9 +965,9 @@
                         <label for="type">Loan Type</label>
                         <select id="type" name="type" required>
                             <option value="">Select loan type</option>
-                            <option value="personal">Personal Loan (18% APR)</option>
-                            <option value="business">Business Loan (15% APR)</option>
-                            <option value="asset">Asset Financing (12% APR)</option>
+                            <option value="personal">Personal Loan (2.8% APR)</option>
+                            <option value="business">Business Loan (2.8% APR)</option>
+                            <option value="asset">Asset Financing (2.8% APR)</option>
                         </select>
                     </div>
                     <button type="submit" class="btn calculate-btn">Calculate Monthly Payment</button>
@@ -1317,13 +1317,13 @@
             // Simulate calculation delay
             setTimeout(() => {
                 const interestRates = {
-                    'personal': 0.18,
-                    'business': 0.15,
-                    'asset': 0.12
+                    'personal': 2.8,
+                    'business': 2.8,
+                    'asset': 2.8
                 };
 
-                const annualRate = interestRates[type] || 0.15;
-                const monthlyRate = annualRate / 12;
+                const annualRate = interestRates[type] || 2.8;
+                const monthlyRate = annualRate / 2.8;
                 
                 const payment = (amount * monthlyRate * Math.pow(1 + monthlyRate, term)) / 
                                (Math.pow(1 + monthlyRate, term) - 1);
